@@ -249,7 +249,7 @@ the actual RTL.
 -->
 
 <p align="center">
-<img src="docs/images/architecture/uart-dut-architecture.png" width="750">
+<img src="docs/images/uart-dut-architecture.png" width="750">
 </p>
 
 ### Design Components
