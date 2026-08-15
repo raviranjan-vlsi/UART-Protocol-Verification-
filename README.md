@@ -84,29 +84,9 @@ demonstrate the underlying SystemVerilog verification concepts directly.
 The project is organized so that a reviewer can follow the complete
 verification flow from:
 
-```text
-Stimulus
-   ↓
-Transaction
-   ↓
-Generator
-   ↓
-Driver
-   ↓
-UART DUT
-   ↓
-Monitor
-   ↓
-Scoreboard
-   ↓
-PASS / FAIL
-
-       ┌───────────────┐
-       │               │
-       ▼               ▼
-   Assertions      Coverage
-```
-
+<p align="center">
+<img src="docs/images/uart_verification_flow.png" width="700">
+</p>
 ---
 
 ## 🎯 Key Features
@@ -233,40 +213,8 @@ UART is an asynchronous serial communication protocol in which data is
 transmitted sequentially using a serial line without a shared clock
 between transmitter and receiver.
 
-A typical UART frame consists of:
-
-```text
-Idle      Start       Data             Parity       Stop
-  │          │          │                 │           │
-  ▼          ▼          ▼                 ▼           ▼
-
-───────┐   ┌───┐   ┌───────────────┐   ┌───┐   ┌────────
-       └───┘   └───┴───────────────┴───┘   └───┘
-```
-
-The exact frame configuration supported by this project should be
-referenced from the RTL implementation.
-
-<!--
-IMAGE PLACEHOLDER
-
-Create the UART frame/protocol diagram manually.
-
-Recommended file:
-docs/images/protocol/uart-frame-format.png
-
-The diagram should show the actual frame configuration supported by
-this implementation, including:
-- Idle
-- Start bit
-- Data bits
-- Optional parity
-- Stop bit
-- Bit timing / baud relationship if useful
--->
-
 <p align="center">
-<img src="docs/images/protocol/uart-frame-format.png" width="750">
+<img src="docs/images/UART_Frame_format.png" width="700">
 </p>
 
 ---
