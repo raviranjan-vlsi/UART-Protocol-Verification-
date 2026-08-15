@@ -224,32 +224,9 @@ between transmitter and receiver.
 The UART design is organized around dedicated transmit and receive
 logic integrated at the top level.
 
-<!--
-IMAGE PLACEHOLDER
-
-Create the actual UART RTL block diagram.
-
-Recommended file:
-docs/images/architecture/uart-dut-architecture.png
-
-Suggested blocks:
-
-                  UART TOP
-              ┌──────────────┐
-              │              │
-  TX Control ─►│ UART TX     │──► TX Serial
-              │              │
-              │              │
-  RX Serial ─►│ UART RX     │──► RX Data
-              │              │
-              └──────────────┘
-
-Add clock, reset, configuration and status signals according to
-the actual RTL.
--->
 
 <p align="center">
-<img src="docs/images/uart-dut-architecture.png" width="750">
+<img src="docs/images/uart-dut-architecture.png" width="700">
 </p>
 
 ### Design Components
@@ -314,32 +291,6 @@ Additional verification mechanisms operate alongside the scoreboard:
                  ▼
               Result
 ```
-
-<!--
-IMAGE PLACEHOLDER
-
-Create the final professional verification environment diagram.
-
-Recommended file:
-docs/images/architecture/uart-verification-environment.png
-
-Show the actual relationships between:
-- Test
-- Environment
-- Generator
-- Driver
-- DUT
-- Monitor
-- Scoreboard
-- Coverage
-- Assertions
-- Mailboxes
-- Virtual interface
--->
-
-<p align="center">
-<img src="docs/images/architecture/uart-verification-environment.png" width="850">
-</p>
 
 ---
 
@@ -495,34 +446,10 @@ and top-level integration.
 The transmitter converts parallel transmit information into serial
 UART waveform activity.
 
-Conceptually:
 
-```text
-TX Data
-   │
-   ▼
-┌─────────────┐
-│ UART TX     │
-│             │
-│ Frame       │
-│ Generation  │
-└──────┬──────┘
-       │
-       ▼
-   Serial TX
-```
-
-<!--
-IMAGE PLACEHOLDER
-
-Add a waveform showing an actual TX transaction.
-
-Recommended file:
-docs/images/simulation/uart-tx-waveform.png
--->
 
 <p align="center">
-<img src="docs/images/simulation/uart-tx-waveform.png" width="850">
+<img src="docs/images/uart_tx.png" width="700">
 </p>
 
 ---
@@ -532,74 +459,12 @@ docs/images/simulation/uart-tx-waveform.png
 The receiver observes the serial UART input and reconstructs the
 received data.
 
-Conceptually:
-
-```text
-Serial RX
-    │
-    ▼
-┌─────────────┐
-│ UART RX     │
-│             │
-│ Sampling    │
-│ Frame       │
-│ Detection   │
-│ Error Check │
-└──────┬──────┘
-       │
-       ▼
-   RX Data
-```
-
-<!--
-IMAGE PLACEHOLDER
-
-Add a waveform showing an actual RX transaction.
-
-Recommended file:
-docs/images/simulation/uart-rx-waveform.png
--->
-
 <p align="center">
-<img src="docs/images/simulation/uart-rx-waveform.png" width="850">
+<img src="docs/images/uart_rx.png" width="700">
 </p>
 
 ---
 
-## 🔄 TX/RX Verification Flow
-
-A typical functional verification sequence can be represented as:
-
-```text
-Test
- │
- ▼
-Generate Transaction
- │
- ▼
-Drive TX / RX Interface
- │
- ▼
-UART DUT
- │
- ├───────────────┐
- │               │
- ▼               ▼
-TX/RX Activity  Status/Error
- │               │
- └───────┬───────┘
-         ▼
-       Monitor
-         │
-         ▼
-     Scoreboard
-         │
-    ┌────┴────┐
-    ▼         ▼
-  PASS       FAIL
-```
-
----
 
 ## 🧪 Verification Strategy
 
@@ -893,33 +758,9 @@ correctly.
 
 ### Parity Error
 
-```text
-Expected UART frame
-        │
-        ▼
- ┌───────────────┐
- │ Correct Data  │
- │ Correct Parity│
- └───────────────┘
-
-             ↓ Error Injection
-
- ┌───────────────┐
- │ Data          │
- │ Incorrect     │
- │ Parity        │
- └───────────────┘
-```
-
-<!--
-IMAGE PLACEHOLDER
-
-Recommended file:
-docs/images/simulation/parity-error-waveform.png
--->
 
 <p align="center">
-<img src="docs/images/simulation/parity-error-waveform.png" width="850">
+<img src="docs/images/parity_error.png" width="700">
 </p>
 
 ---
@@ -928,15 +769,9 @@ docs/images/simulation/parity-error-waveform.png
 
 The framing-error test exercises an invalid UART frame condition.
 
-<!--
-IMAGE PLACEHOLDER
-
-Recommended file:
-docs/images/simulation/framing-error-waveform.png
--->
 
 <p align="center">
-<img src="docs/images/simulation/framing-error-waveform.png" width="850">
+<img src="docs/images/framing_error.png" width="700">
 </p>
 
 ---
@@ -946,15 +781,8 @@ docs/images/simulation/framing-error-waveform.png
 The test suite also contains a scenario where parity and framing
 error conditions are exercised together.
 
-<!--
-IMAGE PLACEHOLDER
-
-Recommended file:
-docs/images/simulation/combined-error-waveform.png
--->
-
 <p align="center">
-<img src="docs/images/simulation/combined-error-waveform.png" width="850">
+<img src="docs/images/Parity-Error-and-framing-error-combined.png" width="700">
 </p>
 
 ---
