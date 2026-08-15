@@ -933,63 +933,6 @@ implementation.
 | Functional Coverage       | Coverage collection            | Enabled    |
 | Assertions                | SVA checking                   | Enabled    |
 
----
-
-## 💻 Example Verification Flow
-
-A typical transaction passes through the environment as follows:
-
-```text
-1. TEST
-   │
-   ▼
-2. GENERATOR
-   │
-   │ Creates transaction
-   ▼
-3. DRIVER
-   │
-   │ Drives DUT interface
-   ▼
-4. UART DUT
-   │
-   │ Generates TX/RX behavior
-   ▼
-5. MONITOR
-   │
-   │ Captures actual behavior
-   ▼
-6. SCOREBOARD
-   │
-   ├── Expected
-   └── Actual
-          │
-          ▼
-       Compare
-          │
-      ┌───┴───┐
-      ▼       ▼
-    PASS     FAIL
-```
-
-At the same time:
-
-```text
-UART DUT
-   │
-   ├──────────► Assertions
-   │
-   └──────────► Coverage
-```
-
-This allows the same simulation to provide:
-
-* Functional result
-* Protocol checking
-* Coverage measurement
-* Debug information
-
----
 
 ## ▶️ How to Run
 
@@ -1214,17 +1157,10 @@ including:
 Possible future extensions include:
 
 * UVM-based version of the verification environment
-* More extensive constrained-random stimulus
 * Expanded functional coverage
-* Additional UART corner-case testing
-* More protocol assertions
 * Coverage-driven test refinement
 * Automated coverage report generation
 * CI-based regression
-* Multi-simulator regression
-* Automated waveform/result artifact collection
-* Enhanced reference-model checking
-* Formal verification of selected UART properties
 
 ---
 
