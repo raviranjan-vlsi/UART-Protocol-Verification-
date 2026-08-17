@@ -1185,9 +1185,8 @@ National Institute of Technology Kurukshetra
 
 ## 🔗 Connect
 
-* GitHub: `[ADD YOUR GITHUB PROFILE LINK]`
-* LinkedIn: `[ADD YOUR LINKEDIN PROFILE LINK]`
-* Email: `[ADD YOUR EMAIL]`
+* LinkedIn: `https://www.linkedin.com/in/raviranjan-kumar-ece/`
+* Email: `raviranjan.kumar.ece@gmail.com`
 
 ---
 
